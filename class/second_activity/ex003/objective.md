@@ -1,0 +1,3 @@
+# Lista de exercícios 02 atividade 03
+
+Crie um sistema capaz de solicitar ao usuário seu cep, e o mesmo de informar o endereço de forma agranizada em um relatório personalizado gerado por você. O sistema deve solicitar um novo cep em caso de ter sido informado um cep errado. O sistema deve ser capaz de solicitar uma nova consulta ao usuário, o sistema somente deve encerrar em caso do usuário não desejar realizar outra consulta.
