@@ -1,7 +1,7 @@
 # Desenvolva um algoritmo que peça ao usuário para inserir 5 números, adicione-os a uma lista e, depois, exiba a soma de todos os números na lista.
 
-number_list = []
-soma = 0
+number_list = list()
+soma = int()
 
 for i in range(5):
     num = int(input(f'Digite o {i}° número: '))

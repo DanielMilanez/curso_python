@@ -1,40 +1,21 @@
 from os import system as sys
 
 alunos = [
-    {
-        'Matricula': 12345,
-        'Nome':'Daniel',
-        'Idade': 19,
-        'Sexo': 'M'
-    },
-    {
-        'Matricula': 43123,
-        'Nome':'Miguel',
-        'Idade': 22,
-        'Sexo': 'M'
-    },
-    {
-        'Matricula': 13141,
-        'Nome':'Samuel',
-        'Idade': 31,
-        'Sexo': 'M'
-    },
-    {
-        'Matricula': 65471,
-        'Nome':'Sarah',
-        'Idade': 15,
-        'Sexo': 'F'
-    },
-
+    {'Matricula': 12345, 'Nome': 'Daniel', 'Idade': 19, 'Sexo': 'M'},
+    {'Matricula': 43123, 'Nome': 'Miguel', 'Idade': 22, 'Sexo': 'M'},
+    {'Matricula': 13141, 'Nome': 'Samuel', 'Idade': 31, 'Sexo': 'M'},
+    {'Matricula': 65471, 'Nome': 'Sarah', 'Idade': 15, 'Sexo': 'F'},
 ]
-opitions_list = ['Cadastrar nome', 'Atualizar nome', 'Excluir nome', 'Mais informações', 'Sair']
+opitions_list = ['Cadastrar nome', 'Atualizar nome',
+                 'Excluir nome', 'Mais informações', 'Sair']
+
 
 def selections(slection, matricula):
     match slection:
         case 1:
             try:
                 name = input('Insira o nome: ')
-                mat = input(f'Digite a matricula de {name}: ')
+                mat = int(input(f'Digite a matricula de {name}: '))
                 idade = int(input(f'Insira a idade de {name}: '))
                 sexo = input(f'Insira o sexo de {name}: ')
 
@@ -60,18 +41,23 @@ def selections(slection, matricula):
             return False
     return True
 
+
 def create_new(name, idade, matricula, sexo):
-    alunos.append({'Nome': name, 'Matricula': matricula, 'Idade': idade, 'Sexo': sexo})
+    alunos.append({'Nome': name, 'Matricula': matricula,
+                  'Idade': idade, 'Sexo': sexo})
     opitions()
+
 
 def rename(find_aluno, aluno):
     print(f'O aluno {aluno} será atualizado!')
 
     alunos[find_aluno]['Nome'] = input('Digite o novo nome do aluno:')
-    alunos[find_aluno]['Matricula'] = int(input(f'Insira o número da matricula: '))
+    alunos[find_aluno]['Matricula'] = int(
+        input(f'Insira o número da matricula: '))
     alunos[find_aluno]['Idade'] = int(input(f'Insira a idade: '))
     alunos[find_aluno]['Sexo'] = input(f'Insira o sexo: ')
-   
+
+
 def opitions():
     sys('cls')
     print('A Academia, lista de alunos')
@@ -87,9 +73,11 @@ def opitions():
         print(f'{indice + 1} - {opition}')
     print('=' * 30)
 
+
 def delete(matricula):
     aluno = leitor_matricula(matricula)
     alunos.pop(aluno)
+
 
 def leitor_matricula(matricula):
     # Rastreando o aluno a ser removido
@@ -99,6 +87,7 @@ def leitor_matricula(matricula):
             return i
     return -1
 
+
 def mostrar_aluno(matricula):
     sys('cls')
     for i, aluno in enumerate(alunos):
@@ -106,10 +95,11 @@ def mostrar_aluno(matricula):
         if aluno['Matricula'] == matricula:
             print(f'Aluno: {aluno["Nome"]}')
 
+
 def info(find_aluno):
     sys('cls')
 
-    if 0 <= find_aluno < len(alunos) :
+    if 0 <= find_aluno < len(alunos):
         aluno = alunos[find_aluno]
         print(f'Nome: {aluno["Nome"]}')
         print(f'Matrícula: {aluno["Matricula"]}')
