@@ -1,6 +1,6 @@
 # Este � um arquivo Python criado automaticamente.
-num = 1
-soma = 0
+num = None
+soma = int()
 
 while num != 0:
     num = int(input('Digite um número: '))
