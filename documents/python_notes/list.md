@@ -32,7 +32,41 @@ Vamos para uma pratica!
 ```
 O resutado será 15.
 
+## Copiando uma lista
 
+        lista_frutas = ['Laranja', 'Morango', 'Uva']
+        copia_lista = lista_frutas
+
+        print(lista_frutas)
+        print(copia_lista)
+
+resultado será: `['Laranja', 'Morango', 'Uva']`
+
+Demais testes com copias, vamos tentar acessar a lista e alterar a lista sem a cópia.
+        lista_frutas = ['Laranja', 'Morango', 'Uva']
+        copia_lista = lista_frutas
+
+        print(lista_frutas)
+        print(copia_lista)
+
+        lista_frutas[1] = 'Kiwi'
+
+        print(lista_frutas)
+        print(copia_lista)
+
+resultado será: 
+        ['Laranja', 'Morango', 'Uva']
+        ['Laranja', 'Morango', 'Uva']
+        ['Laranja', 'Kiwi', 'Uva']
+        ['Laranja', 'Kiwi', 'Uva']
+        
+Ambas usam a mesma referencia de memória ram, e isso é um problema, pois singifica que todas as cópias, por padrão serão afetadas todas as cópias, para resolver isso precisamos tornar a cópia independete para isso usamos o `lista_frutas[:]` para simbolizar que ela está independete.
+
+agora com essa alteração o resultado será: 
+        ['Laranja', 'Morango', 'Uva']
+        ['Laranja', 'Morango', 'Uva']
+        ['Laranja', 'Morango', 'Uva']
+        ['Laranja', 'Kiwi', 'Uva']
 
 ## Metodos de listas
 

@@ -9,8 +9,11 @@
 | NOTES | DESCRIPTION | LINK|
 |:-:|:-:|:-:|
 |1| LISTAS |[ Aqui](./list.md)|
+|1| DICIONÁRIOS |[ Aqui](./notebooks/dicionary.ipynb)|
 |2| PARAMETROS |[ Aqui](./parametros.md)|
 |3| SWITCHS |[ Aqui](./switchs.md)|
+|4| TRATAMENTO DE ERROS |[ Aqui](./erros.md)|
+|5| ANY & ALL |[ Aqui](./notebooks/utilidades.ipynb)|
 
 # Anotações gerais python
 - O que eu preciso para desenvolver em python? Ter o python e alguma maneira para me comunicar com ele.
@@ -122,6 +125,4 @@ São regras de escritas e nomeclaturas
 - Segundo esta pep itens separados por uma virgula deve haver espaço
 - Entre objetos devem ter um espaço entre e outro deve se separar por duas linhas
 
-faça a instalação do autopep8 (microsoft)
-
-ctrl + shift + p 
+faça a instalação do autopep8 (microsoft) `ctrl + shift + p` 
