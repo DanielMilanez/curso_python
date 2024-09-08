@@ -164,3 +164,59 @@ print(df_vendas)
 df_vendas = df_vendas.drop('Imposto', axis=1)
 ```
 
+## Tratando valores vazios
+- Deletar linhas/colunas vazias: Para que possa utilizar este método podemos apenas deletar colunas/linhas completamente vazias
+```Python
+# O parametro all exclui apenas linhas e colunas que são completamente vazias
+# Se o parametro não for indicado, as linhas serão excluidas onde todos os valores são vazios
+# Se desejar excluir colunas, informe o eixo com o parametro axis=1
+df_vendas = df_vendas.dropna(how='all')
+```
+- Deletar linhas que possuem pelo menos um valor vazio: 
+
+```Python
+# Ele exclui linhas com valores vazios
+df_vendas = df_vendas.dropna()
+```
+- Preencher valores vazios (média e último valor):
+Media
+```Python
+# fillna preenche os valores, se entre parenteses colocar 0 ele irá preencher com 0, se colocar 1 prenchera com 1
+# mean extrai a média de uma coluna, em nosso exemplo ele está extraindo a média da coluna de comissão
+df_vendas['Comissão'] = df_vendas['Comissão'].fillna(df_vendas['Comissão'].mean())
+```
+preenchedo com o último valor
+```Python
+# ffill preenche os espaços vazios com o primeiro valor a cima dele
+df_vendas = df_vendas.ffill()
+```
+
+## Métodos de analise de dados
+Estes métodos são extremamente uteis para se calcular alguns indicadores.
+
+- Groupby: Por exemplo, agrupa as informações, digamos que em nosso exemplo com o dataframe `df_vendas` eu deseje calcular o faturamento de cada um dos produtos, pense no resultado final deesjado, em nosso caso desejamos um agrupamento de todos os produtos presentes no dataframe e com isso calculamos a soma total do determinado produto.
+```Python
+# primeiro chamamos o método, dps informamos qual coluna iremos trabalhar, e em seguida definimos o que irá 
+# acontecer com as demais colunas numericas
+# se não informarmos nada o groupby irá retornar a coluna e todos os itens subsequentes dessa coluna que sejam numericos
+# mas podemos expecificas a coluna usando um []
+
+# Exemplo sem conchetes, retorna a coluna solicitada mais todas as colunas que são numericas depois dela
+faturamento_produto = df_vendas.groupby('Produto').sum()
+
+# Exemplo com conhcetes, retorna a coluna solicitada mais todas as clunas númericas solicitadas
+faturamento_produto = df_vendas[['Produto', 'Valor Final']].groupby('Produto').sum()
+```
+
+- Value Counts: Agora o método `value counts` realiza uma contagem de quantas vezes o determinado valor é exibido
+```Python
+transacoes_lojas = df_vendas['ID Loja'].value_counts()
+```
+
+# Mesclar
+Meu objetivo é mesclar a tabela original com a tabela gerentes, para que eu consiga saber quem é o gerente de cada uma das lojas. E para isso preciso procurar as informações de uma tabela em outra e depois aplicar as alterações
+```Python 
+df_gerentes = pd.read_excel('Gerentes.xlsx')
+
+df_vendas = df_vendas.merge(df_gerentes)
+```
