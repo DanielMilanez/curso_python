@@ -1,6 +1,6 @@
 # Pandas: O guia de sobrevivência
 
-O Pandas é uma biblioteca muito utilizada para trabalhar com dados. Com ela, podemos fazer diversas operações. Mas, antes de começar, é necessário instalar o Pandas e importá-lo. Para isso, use o comando: `import pandas as pd`.
+O Pandas é uma biblioteca muito utilizada para trabalhar com dados. Com ela, podemos fazer diversas operações. Mas, antes de começar, é necessário instalar o Pandas e importá-lo. Para isso, use o comando: `import pandas as pd`. Mas veja bem, ele não é apenas uma biblioteca, ele é A BIBLIOTECA de manipulação de dados. 
 
 O Pandas funciona com **dataframes**. Dataframe é uma tabela dentro do Python. Sempre que trabalhamos com dados em geral no Python, utilizamos dataframes.
 
@@ -129,3 +129,38 @@ Digamos que desejamos extrarir o valor "camiseta" de nosso **dataframe** para is
 # Método .loc infromando ao computador a linha | coluna para retornar o item.
 print(df_vendas.loc[1, 'Produto'])  
 ```
+
+## Adicionar 1 coluna / linha
+Para poder adicionar uma coluna nova é necessário tomar muito cuidado, no pandas existem 2 formas de se adicionar uma coluna nova ou você adiciona `a partir de uma coluna que ja existe` ou você adiciona `criando uma coluna nova com valores padrões`
+
+- A partir de uma coluna que existe
+```Python
+# Vamos supor em nosso exemplo que eu desejo atribuir para o vendendor 5% do valor final de lucro
+df_vendas['Comissão'] = df_vendas['Valor Final'] * 0.05
+print(df_vendas)
+```
+
+- Criar uma coluna com valor padrão
+```Python
+# maneira mais demorada, e que pode ocasionar em erros
+df_vendas['Imposto'] = 0
+
+# : para o pandas significa tudo. Maneira menos custosa
+df_vendas.loc[:, 'Imposto'] = 0
+```
+
+Vamos modificar nosso dataframe original com um novo dataframe, "mesclando" os dois, eu desejo adicionar o registro de vendas de dezembro a meu dataframe que so vai ate novembro.
+
+```Python
+df_dez_vendas = pd.read_excel('Vendas - Dez.xlsx')
+
+df_vendas = df_vendas.append(df_dez_vendas)
+print(df_vendas)
+```
+
+## Excluir linhas e colunas
+```Python
+# Eixo 1 é a coluna e Eixo 0 ou não definido é a linha
+df_vendas = df_vendas.drop('Imposto', axis=1)
+```
+
