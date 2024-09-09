@@ -8,12 +8,13 @@
 
 | NOTES | DESCRIPTION | LINK|
 |:-:|:-:|:-:|
+|1| CONDICIONAIS E OPERADORES|[Aqui](./conditionals.md)|
 |1| LISTAS |[ Aqui](./list.md)|
-|1| DICIONÁRIOS |[ Aqui](./notebooks/dicionary.ipynb)|
-|2| PARAMETROS |[ Aqui](./parametros.md)|
-|3| SWITCHS |[ Aqui](./switchs.md)|
-|4| TRATAMENTO DE ERROS |[ Aqui](./erros.md)|
-|5| ANY & ALL |[ Aqui](./notebooks/utilidades.ipynb)|
+|2| DICIONÁRIOS |[ Aqui](./notebooks/dicionary.ipynb)|
+|3| PARAMETROS |[ Aqui](./parametros.md)|
+|4| SWITCHS |[ Aqui](./switchs.md)|
+|5| TRATAMENTO DE ERROS |[ Aqui](./erros.md)|
+|6| ANY & ALL |[ Aqui](./notebooks/utilidades.ipynb)|
 
 # Anotações gerais python
 - O que eu preciso para desenvolver em python? Ter o python e alguma maneira para me comunicar com ele.

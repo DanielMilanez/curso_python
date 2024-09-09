@@ -9,7 +9,7 @@ O objetivo do curso é capacitar os alunos a programar na linguagem de programa�
 |03| Aprendendo ***git***| [Aqui](./documents/notes_git.md)
 |04| Aprendendo ***python***| [Aqui](./documents/python_notes/principal_notes.md) |
 
-Anotações para aprendizado de bibliotecas expecificas do python e conceitos mais aprofundados.
+Estudos com **ciência de dados**.
 
 | AULA | DESCRIÇÃO | LINK PARA AULA|
 |:-:|-|:-:|
