@@ -9,11 +9,11 @@ O objetivo do curso é capacitar os alunos a programar na linguagem de programa�
 |03| Aprendendo ***git***| [Aqui](./documents/notes_git.md)
 |04| Aprendendo ***python***| [Aqui](./documents/python_notes/principal_notes.md) |
 
-Caso deseje acessar anotações e enunciados de atividades, extras feitas durante meu aprendizado:
+Anotações para aprendizado de bibliotecas expecificas do python e conceitos mais aprofundados.
 
 | AULA | DESCRIÇÃO | LINK PARA AULA|
-|:-:|:-:|:-:|
-|1| Atividade |[ Aqui](./class/second_activity/ex001/objective.md)|
-|1.1| Anotações |[ Aqui ](./class/second_activity/ex001/notes.md)|
-|2| Atividade |[ Aqui](./class/second_activity/ex002/objective.md)|
-|3| Atividade |[ Aqui](./class/second_activity/ex003/objective.md)|
+|:-:|-|:-:|
+|01| Pandas| [Aqui](./documents/data_notes/pandas.md) |
+|02| Ciencia de dados| [Aqui](./documents/data_notes/data_sience.md) |
+|03| Analise exploratória| [Aqui](./documents/data_notes/aed.md)
+|04| Aprendizado de maquina| -- |
