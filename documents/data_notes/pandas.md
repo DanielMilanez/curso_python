@@ -2,6 +2,8 @@
 
 O Pandas é uma biblioteca muito utilizada para trabalhar com dados. Com ela, podemos fazer diversas operações. Mas, antes de começar, é necessário instalar o Pandas e importá-lo. Para isso, use o comando: `import pandas as pd`. Mas veja bem, ele não é apenas uma biblioteca, ele é A BIBLIOTECA de manipulação de dados. 
 
+Caso esteja procurando mais informações sobre o pandas acesse a [documentação](https://pandas.pydata.org).
+
 O Pandas funciona com **dataframes**. Dataframe é uma tabela dentro do Python. Sempre que trabalhamos com dados em geral no Python, utilizamos dataframes.
 
 Exemplo de **dataframe** (tabela)
@@ -36,7 +38,10 @@ df_vendas = pd.DataFrame(venda)
 Neste método, importamos um dataframe a partir de uma base de dados. Para fazer isso, é necessário ter um arquivo `.xlsx.`:
 
 ```python
+# Lendo um arquivo excel
 df_vendas = pd.read_excel("Vendas.xlsx")
+# Lendo um arquivo csv
+df_vendas = pd.read_csv("Vendas.csv")
 ```
 
 O que está entre aspas é a localização do arquivo. No meu caso, ele está no mesmo local do código que estou executando, por isso não preciso especificar o caminho completo do arquivo.
@@ -47,20 +52,51 @@ O que está entre aspas é a localização do arquivo. No meu caso, ele está no
 - head: mostra apenas as 5 primeiras linhas por padrão, mas você consegue alterar a quantidade de linhas mostradas adicionando um número dentro do parenteses. 
 
 ```python
-# mostra 5 linhas por padrão.
+# mostra 5 primeiras linhas por padrão.
 print(df_vendas.head())
-# mostra 10 linhas
+# mostra 10 primeiras linhas
 print(df_vendas.head(10))
 ```
-### Shape
-- shape: mostra quantas linhas e colunas existem na tabela.
-```python
-print(df_vendas.shape)
+### Tail
+- tail: mostra as últimas linhas do meu dataframe por padrão, mas assim como o head, eu consigo informar quantas linhas eu desejo vizualizar.
+```Python
+#mostra 5 últimas linhas por padrão 
+print(df_vendas.tail())
+#mostra 10 últimas linhas
+print(df_vendas.tail(10))
 ```
 ### Describe
 - describe: mostra as colunas númericas e mostra um resumo de toda a sua tabela. 
 ```python
 print(df_vendas.describe())
+```
+### info
+- info: mostra o tipo de dados e a quantidade de valors que não são vazios.
+```Python
+df_vendas.info()
+```
+
+### isnull
+- isnull: realiza uma contgem de valores vazios por coluna, retorna True quando o valor for vazio e False quando o valor não for vazio.
+```Python
+# Exibe os valores
+df_vendas.isnull()
+# Soma os valores pois o true vale 1 e o false vale 0
+df_vendas.isnull().sum()
+```
+
+Além disso, também podemos ver as informações da base podemos trabalhar com atributos.
+
+### Shape
+- shape: mostra quantas linhas e colunas existem na tabela. Em geral exibe o tamanho da base, o shape não é um método mas sim um atribuo. Ele apenas retorna informações do `dataframe`.
+```python
+print(df_vendas.shape)
+```
+
+### dtypes
+- dtypes: mostra somente o tipo dos dados de todas as colunas. Lembrando que object se refere ao tipo ***string***.
+```Python
+df_vendas.dtypes
 ```
 
 ## Médodos para edição de um dataframe
@@ -75,6 +111,7 @@ Lembrando que quando vc puxa uma única coluna de seu dataframe a variável que 
 ```python
 # Puxando informações de uma única coluna
 produtos = df_vendas['Produto']
+produtos = df_vendas.Produto
 # Puxando informações de várias colunas
 produtos = df_vendas[['Produto', 'ID Loja']]
 ```
@@ -128,6 +165,18 @@ Digamos que desejamos extrarir o valor "camiseta" de nosso **dataframe** para is
 ```Python
 # Método .loc infromando ao computador a linha | coluna para retornar o item.
 print(df_vendas.loc[1, 'Produto'])  
+```
+
+- pegar valores de linhas que respeitam uma condicional
+```Python
+# Retornara os valores das linhas cujo a comissão é maior do que 10
+df_vendas[df_vendas.Comissão > 10]
+```
+
+Com isso podemos utilizar filtros mais sofisticados, utilizando com eles operadores lógicos E / OU
+```Python
+df_vendas[(df_vendas.Quatidade > 5) & (df_vendas.Comissão < 10)]
+df_vendas[(df_vendas.Quatidade > 5) | (df_vendas.Comissão < 10)]
 ```
 
 ## Adicionar 1 coluna / linha
@@ -220,3 +269,16 @@ df_gerentes = pd.read_excel('Gerentes.xlsx')
 
 df_vendas = df_vendas.merge(df_gerentes)
 ```
+
+## Métodos arítimeticos
+
+### Média
+Como ja foi mostrado anteriormente é possivel extrarir a média de um dataframe, ela realiza o calculo da soma de todos os valores e divide pela quantidade de valores existentes. `df_vendas.mean()`
+
+### Mediana
+Exibe o valor do meio de acordo com a quantidade de itens na tabela `df_vendas.median()`
+
+### Desvio padrão
+`df_vendas.std()` exibe a taixa de variação entre um valor e outro.
+
+O método ***discribe*** retorna todos esses valores, onde que a única coisa que precisamos fazer é analizar.
