@@ -17,3 +17,10 @@ Estudos com **ciência de dados**.
 |02| Ciencia de dados| [Aqui](./documents/data_notes/data_sience.md) |
 |03| Analise exploratória| [Aqui](./documents/data_notes/aed.md)
 |04| Aprendizado de maquina| -- |
+
+
+Para o curso técnico em desenvolvimento de sistemas deixei separado arquivos para as minhas anotações
+
+| ATIVIDADE | DESCRIÇÃO | LINK PARA AULA|
+|:-:|-|:-:|
+|01| Questionario | [Aqui](./tecnico/Questionario.md) |
